@@ -1,5 +1,12 @@
 hiera_include('classes', [])
 
+exec { 'add_jenkins_to_docker':
+  command => '/usr/sbin/usermod -a -G docker jenkins',
+  require => Class['jenkins'],
+  unless  => '/usr/bin/id jenkins | /bin/grep  -q docker'
+}
+
+
 class { '::consul':
   version              => '0.5.2',
   require => Class['unix_base', 'vagrant', 'ubuntu_pkgs'],
