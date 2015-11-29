@@ -6,7 +6,8 @@ exec { 'add_jenkins_to_docker':
   unless  => '/usr/bin/id jenkins | /bin/grep  -q docker'
 }
 
-jenkins::plugin { 'git': }
+jenkins::plugin { 'git-client': }
+jenkins::plugin { 'github': }
 
 class { '::consul':
   version              => '0.5.2',
