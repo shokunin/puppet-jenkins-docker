@@ -23,3 +23,6 @@ vagrant up
 
 ```
 
+TODO:
+ - fix Jenkins plugin issues
+ - create jobs by default with Puppet
